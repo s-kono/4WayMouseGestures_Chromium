@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "4Way Mouse Gestures",
-  "version": "0.1",
+  "version": "0.2",
   "description": "Right-click drag 4-direction mouse gestures (up=reload, down=close, left=back, right=forward) with red trail visualization.",
   "permissions": [
     "scripting",
@@ -22,8 +22,13 @@
     {
       "matches": ["<all_urls>"],
       "js": ["content.js"],
-      "run_at": "document_idle"
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["inject.js"],
+      "matches": ["<all_urls>"]
     }
   ]
 }
-
