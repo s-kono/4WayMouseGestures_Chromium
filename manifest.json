@@ -1,17 +1,15 @@
 {
   "manifest_version": 3,
   "name": "4Way Mouse Gestures",
-  "version": "0.1",
-  "description": "Right-click drag 4-direction mouse gestures (up=reload, down=close, left=back, right=forward) with red trail visualization.",
-  "permissions": [
-    "scripting",
-    "tabs"
-  ],
-  "host_permissions": [
-    "<all_urls>"
-  ],
+  "version": "0.2",
+  "description": "右ボタンドラッグの4方向ジェスチャ（上=再読み込み / 下=タブを閉じる / 左=戻る / 右=進む）と、右ボタン＋ホイールのタブ切り替え。",
+  "permissions": ["scripting", "tabs", "storage"],
+  "host_permissions": ["<all_urls>"],
   "background": {
     "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
   },
   "icons": {
     "16": "icons/icon16.png",
@@ -22,8 +20,8 @@
     {
       "matches": ["<all_urls>"],
       "js": ["content.js"],
-      "run_at": "document_idle"
+      "run_at": "document_start",
+      "all_frames": true
     }
   ]
 }
-
